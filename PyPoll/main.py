@@ -67,7 +67,7 @@ with open(pypoll_output_csv, "w") as text_file:
                 f"----------------------------\n"
                 f"Total Votes : + str(number_votes)\n" 
                 f"----------------------------\n"
-                or i in range(len(candidate_name)):
+                for i in range(len(candidate_name)):
                         print(candidate_name[i] + ": " + str(percentage_vote[i]) +"% (" + str(votes_each_candidate[i])+ ")")
                 f"----------------------------\n"
                 f"("The winner is: " + winner_candidate)\n"
