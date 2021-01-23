@@ -4,3 +4,13 @@
 # 3. The percentage of votes each candidate won
 # 4. The total number of votes each candidate won
 # 5. The winner of the election based on popular vote.
+
+# -------------------------------------------------------------
+
+# Import dependencies
+import os
+import csv
+
+# path to election_data and output file
+pypoll_path_csv = os.path.join("Resources", "election_data.csv")
+pypoll_output_csv = os.path.join("Output", "election_data.text")
