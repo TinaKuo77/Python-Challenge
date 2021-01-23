@@ -10,7 +10,7 @@ import os
 import csv
 
 #path to financial data
-pybank_path_CSV = os.path.join("..", "Resources", "budget_data .csv")
+pybank_path_CSV = os.path.join("Resources", "budget_data .csv")
 
 #open the file in "read" mode
 with open(pybank_path_CSV) as paybank_csvfile:
