@@ -14,7 +14,7 @@ import csv
 pybank_path_csv = os.path.join("Resources", "budget_data .csv")
 pybank_output_csv = os.path.join("Output", "budget_data.txt")
 
-# create a list
+# list to store data
 month = []
 profit = []
 monthly_change = []
@@ -41,29 +41,31 @@ with open(pybank_path_csv) as pybank_csvfile:
         total_profit = total_profit + int(row[1])
 
         final_profit = int(row[1])
-        monthly_change_profit = inital_profit - final_profit 
+        monthly_change_profit = final_profit - inital_profit  
         monthly_change.append(monthly_change_profit)
         
         total_change_profit = total_change_profit + monthly_change_profit
-
-        inital_profit = final_profittotal_profittotal_profit
-
-        # Calculate the average change
-        average_change_profit = (total_change_profit/count)
+        inital_profit = final_profit
+     
+      # Calculate the average change
+        average = (total_change_profit/count)
         
-        # Find the max and min change in profits and its month
-        Max_profit_change = max(monthly_change)
-        Min_profit_change = min(monthly_change) 
+# Find the max and min change in profits and its month
+Max_profit_change = max(monthly_change)
+Min_profit_change = min(monthly_change)
+
+Max_profit_change_index = monthly_change.index(Max_profit_change)
+Min_profit_change_index = monthly_change.index(Min_profit_change)
             
-        Max_profit_change_month = month[monthly_change.index(Max_profit_change)]
-        Min_profit_change_month = month[monthly_change.index(Min_profit_change)]
+Max_profit_change_month = month[Max_profit_change_index]
+Min_profit_change_month = month[Min_profit_change_index]
 
 # Print the analysis
 print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months:  {count}")
 print(f"Total:  ${total_profit}")
-print(f"Average Change:  ${average_change_profit}")
+print(f"Average Change:  ${round(average,2)}")
 print(f"Greatest Increase in Profits:  {Max_profit_change_month} (${Max_profit_change})")
 print(f"Greatest Decrease in Losses:  {Min_profit_change_month} (${Min_profit_change})")
 
@@ -75,7 +77,7 @@ with open(pybank_output_csv, "w") as text_file:
                 f"----------------------------\n"
                 f"Total Months: {count}\n" 
                 f"Total : ${total_profit}\n"
-                f"Average Change: ${average_change_profit}\n"
+                f"Average Change: ${round(average,2)}\n"
                 f"Greatest Increase in Profit: {Max_profit_change_month} (${Max_profit_change})\n"
                 f"Greatest Decrease in Losses: {Min_profit_change_month} (${Min_profit_change})\n"
                 )
