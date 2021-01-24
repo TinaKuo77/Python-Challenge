@@ -10,7 +10,6 @@
 # Import dependencies
 import os
 import csv
-import decimal
 
 # path to election_data and output file
 pypoll_path_csv = os.path.join("Resources", "election_data.csv")
@@ -40,15 +39,14 @@ with open(pypoll_path_csv) as pypoll_csvfile:
         sorted([candidates_list])
         # print(vote_count)
         
-    for candidate in set(candidates_list):
-        candidate_name.append(candidate)
-        vote = candidates_list.count(candidate)
+    for name in set(candidates_list):
+        candidate_name.append(name)
+        vote = candidates_list.count(name)
         votes_each_candidate.append(vote)
         # print(votes_each_candidate)
         percentage_total_votes = (vote/vote_count)*100
         percentage_vote.append(percentage_total_votes)
-        sorted([percentage_total_votes])
-
+      
     votes_candidate_win = max(votes_each_candidate)
     winner_candidate = candidate_name[votes_each_candidate.index(votes_candidate_win)]
 
