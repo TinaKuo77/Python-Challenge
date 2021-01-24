@@ -38,7 +38,7 @@ with open(pybank_path_csv) as pybank_csvfile:
         count = count + 1
         month.append(row[0])
         profit.append(row[1])
-        total_profit = inital_profit + int(row[1])
+        total_profit = total_profit + int(row[1])
 
         final_profit = int(row[1])
         monthly_change_profit = inital_profit - final_profit 
@@ -46,7 +46,7 @@ with open(pybank_path_csv) as pybank_csvfile:
         
         total_change_profit = total_change_profit + monthly_change_profit
 
-        inital_profit = final_profit
+        inital_profit = final_profittotal_profittotal_profit
 
         # Calculate the average change
         average_change_profit = (total_change_profit/count)
